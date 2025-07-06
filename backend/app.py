@@ -5,7 +5,6 @@ from mongoengine import connect
 from config import Config
 
 from routes.auth import auth
-from routes.notes import notes
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -22,7 +21,6 @@ connect(
 
 # Register Blueprints
 app.register_blueprint(auth, url_prefix="/api")
-app.register_blueprint(notes, url_prefix="/api")
 
 if __name__ == "__main__":
     app.run(debug=True)
